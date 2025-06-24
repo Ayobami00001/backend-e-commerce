@@ -27,10 +27,7 @@ mongoose.connect(URI)
   .catch((err) => {
     console.log(err);
   });
-  app.use(cors({
-     origin: 'https://backend-e-commerce-rho.vercel.app',
-  credentials: true
-  }));
+  app.use(cors({}));
   app.use(express.json())
   app.use(express.urlencoded ({extended: true}));
   app.use(express.static('public'));
@@ -40,7 +37,5 @@ mongoose.connect(URI)
 
 
 
-// app.listen(port, () =>{
-//     console.log(`server started at port ${port}`);
-    
-//   })
+module.exports = app;
+

@@ -18,7 +18,7 @@ const path = require('path');
 
 
 const port = process.env.PORT || 2004;
-const URI = process.env.uri || undefined
+const URI = process.env.URI || undefined
 
 mongoose.connect(URI)
   .then(() => {

@@ -78,23 +78,10 @@ const getUserByEmail = async (req, res) => {
 };
 
 
-const uploadProfileImage = async (req, res) => {
-    try {
-        const user = await userModel.findOne({ email: req.params.mail });
-        if (!user) {
-            return res.status(404).json({ status: "error", message: "User not found" });
-        }
-        user.profileImage = `/uploads/${req.file.filename}`;
-        await user.save();
-        res.json({ status: "success", profileImage: user.profileImage });
-    } catch (err) {
-        res.status(500).json({ status: "error", message: err.message });
-    }
-};
 
 
 
 
 
 
-module.exports ={register , login , getUserByEmail , uploadProfileImage} 
+module.exports ={register , login , getUserByEmail} 

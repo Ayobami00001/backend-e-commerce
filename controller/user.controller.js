@@ -11,7 +11,7 @@ const register = async (req ,res) => {
         
         const user = await userModel.findOne({email: mail});
         if (user){
-            return res.status(400).json({status: "user" , message: "user already exist"})
+            return res.status(400).json({ status: "user", message: "User already exists" });
         }
         const newUser = new userModel({
             userName:name,
@@ -25,7 +25,7 @@ const register = async (req ,res) => {
 
     } catch (err) {
         console.log("Error checking or registering user", err);
-        return res.status(500).json({message: "Error checking or registering", error:err})
+        return res.status(500).json({ message: "Error registering user", error: err });
     }
 
 }
@@ -34,7 +34,7 @@ const register = async (req ,res) => {
 
 
     const login = async (req, res) => {
-        console.log("Logging in user...", req.body);
+        console.log("Login request:", req.body);
     
         const { mail, pass } = req.body;
     
@@ -70,7 +70,6 @@ const getUserByEmail = async (req, res) => {
         res.status(200).json({ status: "success", 
             user: {
                 name: user.userName,
-                profileImage: user.profileImage || ""
             } });
     } catch (error) {
         res.status(500).json({ status: "error", message: error.message });

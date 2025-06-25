@@ -1,5 +1,5 @@
 const { model } = require('mongoose')
-const userModel = require('../Model/User.Model')
+const userModel = require('../model/User.model')
 
 
 const register = async (req ,res) => {
